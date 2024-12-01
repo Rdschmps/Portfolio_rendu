@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Hacker Vaillant</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .carousel-indicator.active {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Boîte d'informations responsive */
+        .dev-info {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            flex: 0 0 300px;
+            max-height: fit-content;
+        }
+        .dev-info h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .dev-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dev-info ul li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .dev-info ul li a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .dev-info ul li a:hover {
+            color: #003ea1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dev-info {
+                margin-top: 20px;
+                max-width: 100%;
+                flex: none;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    
+    <!-- header -->
+    <header class="bg-blue-600 text-white shadow-lg relative">
+        
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <!-- ttitre -->
+            <h1 class="text-xl font-bold text-center flex-1">
+                Projet infra
+            </h1>
+            <!-- Bouton Retour -->
+            <a href="index.html#secondary-projects" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition ml-4">
+                Retour aux Projets
+            </a>
+        </div>
+    </header>
+
+    
+    
+
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    
+
+    <main class="container mx-auto p-6 flex lg:flex-row flex-col gap-6 mb-4">
+        <!-- Section principale -->
+        <div class="main-content flex-1">
+            <!-- carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="medias/projet-infra/page_jeux.png" alt="Image 1 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/projet-infra/infra_mysql.png" alt="Image 2 - ">
+                    </div>
+                    
+                </div>
+                <!-- nav bouton -->
+                <button class="carousel-button prev">&#10094;</button>
+                <button class="carousel-button next">&#10095;</button>
+                <!-- Indicateurs -->
+                <div class="carousel-indicators mb-6">
+                    <span class="carousel-indicator active" data-slide="0"></span>
+                    <span class="carousel-indicator" data-slide="1"></span>
+                    
+                </div>
+            </div>
+
+
+            
+                <div class="space-y-12">
+                    <!--description-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Description du Projet</h2>
+                        <p class="leading-relaxed">
+                            Le projet <strong>Gestion de Jeux Vidéo</strong> consiste en une application web permettant de gérer une collection de jeux vidéo. 
+                            Il offre des fonctionnalités complètes de gestion (CRUD) permettant d’ajouter, supprimer, mettre à jour, et visualiser des jeux via une interface utilisateur. 
+                            Les données sont stockées dans une base de données MySQL hébergée sur un serveur. Le rendu de ce projet nous a aussi appris à réaliser une documentation claire et précise du projet sur git
+                        </p>
+                    </section>
+                <!--objectifs-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Objectifs du Projet</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p>Ce projet avait pour mission de :</p>
+                            <li>Offrir une interface permettant la gestion des jeux vidéo</li>
+                            <li>Mettre en place une communication sécurisée entre l’application client et la base de données</li>
+                            <li>Apprendre la manipulation et la gestion de bases de données dans un cadre concret</li>
+                        </ul>
+                    </section>
+                
+                <!--challenges-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Stack Technique</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p>Le projet a utilisé les technologies suivantes :</p>
+                            <li><strong>Backend :</strong> PHP avec PDO pour la gestion des requêtes SQL sécurisées</li>
+                            <li><strong>Base de données :</strong> MySQL</li>
+                            <li><strong>Serveur :</strong> WAMP/XAMPP pour le développement local</li>
+                            <li><strong>Gestion des dépendances :</strong> Composer</li>
+                            <li><strong>Variables d’environnement :</strong> Dotenv pour sécuriser les informations sensibles</li>
+                        </ul>
+                    </section>
+
+
+
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Sécurité et Gestion des Erreurs</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p> Des mesures de sécurité ont été intégrées dans le projet, incluant :</p>
+                            <li>Prévention des injections SQL via l’utilisation de requêtes préparées PDO</li>
+                            <li>Nettoyage et validation des données utilisateurs pour éviter toute exploitation malveillante</li>
+                        </ul>   
+                    </section>
+
+                    
+
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Ce que le Projet m’a Apporté</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p> Ce projet m'a permis d'apprendre et de renforcer plusieurs compétences clés :</p>
+                            <li>Compréhension approfondie des communications client-serveur</li>
+                            <li>>Gestion d'une base de données MySQL et des opérations CRUD</li>
+                            <li>Maîtrise des bonnes pratiques de sécurité, comme la gestion des erreurs et la prévention des vulnérabilités</li>
+                            <li>Première expérience dans le développement d'une application web complète</li>
+                            <p>Ce projet fut à la fois instructif et motivant, offrant une introduction pratique à la gestion d’infrastructures informatiques.</p>
+                        </ul>
+                    </section>
+
+
+
+                   
+
+
+
+                </div>  
+                
+            
+            
+
+
+
+        </div>
+
+        <!-- boite latérale -->
+        <aside class="dev-info">
+            <h3>Informations de Développement</h3>
+            <ul>
+                <li><strong>Catégorie :</strong>infrastructure / dev web</li>
+                <li><strong>Date :</strong> avril-mai 2024</li>
+                <li><strong>Technologies :</strong> php,pdo; mysql</li>
+                <li><strong>lien du projet :</strong> <a href="https://github.com/Rdschmps/projet_infra" target="_blank">Voir le dépôt GitHub</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-6 shadow-lg text-center">
+        <p>2024 Rayan Deschamps.</p>
+    </footer>
+
+
+    <!-- Script Carousel -->
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * index}px)`;
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+            updateCarousel(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel(currentIndex);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html>

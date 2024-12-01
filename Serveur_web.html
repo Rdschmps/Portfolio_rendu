@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Hacker Vaillant</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .carousel-indicator.active {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Boîte d'informations responsive */
+        .dev-info {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            flex: 0 0 300px;
+            max-height: fit-content;
+        }
+        .dev-info h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .dev-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dev-info ul li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .dev-info ul li a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .dev-info ul li a:hover {
+            color: #003ea1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dev-info {
+                margin-top: 20px;
+                max-width: 100%;
+                flex: none;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+
+    <!-- header -->
+    <header class="bg-blue-600 text-white shadow-lg relative">
+        <!-- Conteneur flexible pour alignement -->
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <!-- Titre -->
+            <h1 class="text-xl font-bold text-center flex-1">
+                Serveur web
+            </h1>
+            <!-- Bouton Retour -->
+            <a href="index.html#secondary-projects" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition ml-4">
+                Retour aux Projets
+            </a>
+        </div>
+    </header>
+
+    
+    
+
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    
+
+  
+    <main class="container mx-auto p-6 flex lg:flex-row flex-col gap-6 mb-4">
+        <!-- Section principale -->
+        <div class="main-content flex-1">
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="medias/serveur-web/R_P.jpg" alt="Image 1 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/serveur-web/Capture d'écran 2024-10-09 161926.png" alt="Image 2 - ">
+                    </div>
+                    
+                </div>
+                <!-- Nav -->
+                <button class="carousel-button prev">&#10094;</button>
+                <button class="carousel-button next">&#10095;</button>
+                <!-- Indicateurs -->
+                <div class="carousel-indicators mb-6">
+                    <span class="carousel-indicator active" data-slide="0"></span>
+                    <span class="carousel-indicator" data-slide="1"></span>
+                    
+                </div>
+            </div>
+
+
+            
+                <div class="space-y-12">
+                    <!--description-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Présentation du projet</h2>
+                        <p class="leading-relaxed">
+                            Dans ce projet, j'ai transformé un Raspberry Pi en un serveur web complet et sécurisé afin notamment d'héberger ce portfolio tout en apprenant le fonctionnement d'un serveur. 
+                            En installant Apache, j'ai pu héberger des pages web, tandis que MySQL a été configuré pour gérer des bases de données, avec PHP permettant des interactions dynamiques entre les utilisateurs et les services en ligne.
+                        </p>
+                    </section>
+                <!--objectifs-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Sécurité</h2>
+                        <p class="leading-relaxed">
+                            Pour renforcer la sécurité, j'ai intégré plusieurs outils et bonnes pratiques. J'ai configuré Fail2ban afin de protéger le serveur contre les tentatives d'intrusion brutale (brute-force) et bloquer les adresses IP suspectes après plusieurs échecs de connexion. 
+                            J'ai également restreint l'accès SSH en modifiant les ports par défaut et en mettant en place des règles de pare-feu avec UFW (Uncomplicated Firewall) pour limiter les connexions aux services essentiels. 
+                            Enfin, la gestion des certificats SSL a été réalisée pour sécuriser les échanges de données via HTTPS.
+                        </p>
+                    </section>
+                <!--challenges-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Ce que ce projet m'a apporté</h2>
+                        <p class="leading-relaxed">
+                            Ce projet m'a permis d'approfondir mes compétences en administration système et de mieux comprendre les mécanismes de sécurisation d'infrastructures réseau. 
+                            J'ai appris à gérer les risques liés aux serveurs en production, à utiliser des outils de protection comme Fail2ban et à configurer des accès sécurisés via SSH. 
+                            En plus des aspects techniques, ce projet m'a permis de développer une approche rigoureuse de la gestion de la sécurité, en anticipant les menaces potentielles et en mettant en place des solutions adaptées. 
+                            Il a également renforcé ma capacité à résoudre des problèmes complexes dans un environnement réel, tout en m'apportant une expérience concrète de gestion de serveur sur des systèmes Linux.
+                        </p>
+                    </section>
+                </div>  
+                
+            
+            
+
+
+
+        
+        </div>
+        <!-- Boîte latérale -->
+        <aside class="dev-info">
+            <h3>Informations de Développement</h3>
+            <ul>
+                <li><strong>Catégorie :</strong> infrastructure serveur</li>
+                <li><strong>Date :</strong> août 2024</li>
+                <li><strong>Technologies :</strong>  AdminSys linux, sécurité</li>
+            </ul>
+        </aside>
+    </main>
+    
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-6 shadow-lg text-center">
+        <p>2024 Rayan Deschamps.</p>
+    </footer>
+
+
+    <!-- Script Carousel -->
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * index}px)`;
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+            updateCarousel(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel(currentIndex);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Hacker Vaillant</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .carousel-indicator.active {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Boîte d'informations responsive */
+        .dev-info {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            flex: 0 0 300px;
+            max-height: fit-content;
+        }
+        .dev-info h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .dev-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dev-info ul li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .dev-info ul li a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .dev-info ul li a:hover {
+            color: #003ea1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dev-info {
+                margin-top: 20px;
+                max-width: 100%;
+                flex: none;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    
+    <!-- head -->
+    <header class="bg-blue-600 text-white shadow-lg relative">
+        <!-- Conteneur flexible pour alignement -->
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <!-- titre -->
+            <h1 class="text-xl font-bold text-center flex-1">
+                Capture The Flag
+            </h1>
+            <!-- bouton Retour -->
+            <a href="index.html#secondary-projects" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition ml-4">
+                Retour aux Projets
+            </a>
+        </div>
+    </header>
+
+    
+    
+
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    
+
+   
+    <main class="container mx-auto p-6 flex lg:flex-row flex-col gap-6 mb-4">
+        <!-- Section principale -->
+        <div class="main-content flex-1">
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/ctf-404.png" alt="Image 1 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/chall1.png" alt="Image 2 -">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/ctf.jpeg" alt="Image 3 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/dgse.jpg" alt="Image 4 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/roazhonHack.jpg" alt="Image 5 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/chall2.png" alt="Image 6 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/cadenas.jpg" alt="Image 7 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/hacker-vaillant/chall3.png" alt="Image 8 - ">
+                    </div>
+                </div>
+                <!-- nav -->
+                <button class="carousel-button prev">&#10094;</button>
+                <button class="carousel-button next">&#10095;</button>
+                <!-- Indicateurs -->
+                <div class="carousel-indicators mb-6">
+                    <span class="carousel-indicator active" data-slide="0"></span>
+                    <span class="carousel-indicator" data-slide="1"></span>
+                    <span class="carousel-indicator" data-slide="2"></span>
+                    <span class="carousel-indicator" data-slide="3"></span>
+                    <span class="carousel-indicator" data-slide="4"></span>
+                    <span class="carousel-indicator" data-slide="5"></span>
+                    <span class="carousel-indicator" data-slide="6"></span>
+                    <span class="carousel-indicator" data-slide="7"></span>
+                </div>
+            </div>
+
+
+            
+                <div class="space-y-12">
+                    <!--description-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Présentation</h2>
+                        <p class="leading-relaxed">
+                            Les compétences développées grâce aux cours d'intro et à mes différents projets et recherches personnels en lien avec la cybersécurité mon permis (seul ou en équipe) de participer à différents ctf tout au long de l'année afin de poursuivre l'acquisition de compétences en mettant en pratique ce que j'ai appris, en voici quelques exemples ".
+                    </section>
+                <!--objectifs-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Ynov x Seela - Capture The Flag</h2>
+                        <p class="leading-relaxed">
+                            Cette compétition s'est tenue en collaboration avec Seela, et a regroupé des étudiants de plusieurs niveaux.
+                            J'y ai participé activement avec 3 autres membres de l'équipe Hacker Vaillant. Cette expérience m'a permis de développer mes compétences en équipe, de renforcer mes connaissances dans les domaines du reverse engineering, des analyses de logs, de cryptographie, d'osint tout en découvrant de nouveaux outils spécifiques au monde de la sécurité informatique.
+                        </p>
+                    </section>
+                
+                <!--challenges-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Hacker Vaillant - CTF Interne</h2>
+                        <p class="leading-relaxed">
+                            Les CTF de Hacker Vaillant ont été des projets interne mis en place par les master 2 de l'école. 
+                            Ils s'organisait durant une journée autour d'un enquête complète allant de la partie recherches (osint) à de l'études de logs, des failles web, du brute-force etc... 
+                            Ces projets étaient très intéressant car ils était construit autour d'une histoire qui servait de fil conducteur et mettait en pratique notre logique en plus des compétences pratique en cyber afin de mener une enquête de bout en bout.
+                        </p>
+                    </section>
+
+                
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">CTF 404 - Organisé par la DGSE</h2>
+                        <p class="leading-relaxed">
+                            Le CTF 404 de la DGSE a été l'un des événements les plus marquants de mon parcours. Ce challenge national regroupait de nombreux experts en cybersécurité et offrait des défis complexes dans des environnements très réalistes. 
+                            En participant à cet événement, j'ai non seulement amélioré mes compétences en sécurité réseau, mais j'ai aussi eu l'occasion d'approfondir mes connaissances dans des domaines comme le web exploitation, le réseau, et les systèmes de sécurité avancés.
+                        </p>
+                    </section>
+                </div>  
+                
+            
+            
+
+
+
+        </div>
+
+        <!-- Boîte latérale -->
+        <aside class="dev-info">
+            <h3>Informations de Développement</h3>
+            <ul>
+                <li><strong>Catégorie :</strong> Hacking Éthique</li>
+                <li><strong>Date :</strong> 2023-2024</li>
+                <li><strong>Présentation du projet :</strong> 
+                    <a href="medias/Soutenance Hacker Vaillant.pdf" download>
+                        Soutenance Projet Hacker Vaillant
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-6 shadow-lg text-center">
+        <p>2024 Rayan Deschamps. </p>
+    </footer>
+
+
+    <!--  Carousel -->
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * index}px)`;
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+            updateCarousel(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel(currentIndex);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html>

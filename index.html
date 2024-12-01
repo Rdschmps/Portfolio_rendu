@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deschamps Rayan</title>
+    <link rel="icon" href="medias/FavIcon.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="dist/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    
+    <!-- Header -->
+    <header class="bg-black text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-2 px-4">
+            <!-- titre cliquable -->
+            <a href="#" class="text-xl font-semibold hover:text-gray-300 transition">
+                Portfolio
+            </a>
+            <!-- menu burger -->
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- nav -->
+            <nav id="menu" class="hidden md:flex space-x-2 text-sm">
+                <a href="#profil" class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg transition">Profil</a>
+                <a href="#competences" class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg transition">Compétences</a>
+                <a href="#projects" class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg transition">Projets</a>
+                <a href="#cv-contact-section" class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg transition">CV & Contact</a>
+            </nav>
+        </div>
+        <!-- menu burger -->
+        <div id="mobile-menu" class="hidden bg-black text-white flex flex-col items-start py-4 px-4 space-y-2 md:hidden">
+            <a href="#profil" class="w-full px-3 py-2 hover:bg-gray-800 rounded-lg transition">Profil</a>
+            <a href="#competences" class="w-full px-3 py-2 hover:bg-gray-800 rounded-lg transition">Compétences</a>
+            <a href="#projects" class="w-full px-3 py-2 hover:bg-gray-800 rounded-lg transition">Projets</a>
+            <a href="#cv-contact-section" class="w-full px-3 py-2 hover:bg-gray-800 rounded-lg transition">CV & Contact</a>
+        </div>
+    </header>
+
+    <script>
+        const menuButton = document.getElementById("menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+
+
+    <!-- Video Accueil -->
+    <div class="relative h-screen">
+        <!-- Vidéo  arrière plan -->
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+            <source src="medias/video-accueil.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture de la vidéo.
+        </video>
+
+        <!-- Contenu en overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white text-center px-4">
+            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold drop-shadow-lg">RAYAN DESCHAMPS</h1>
+            <div class="text-lg md:text-2xl lg:text-3xl mt-6 font-semibold drop-shadow-sm">
+                <span id="typewriter"></span><span id="cursor" class="inline-block">|</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  CSS -->
+    <style>
+        #cursor {
+            animation: blink 0.5s step-end infinite;
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* responsiv */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem; /* Réduit la taille du titre sur les petits écrans */
+            }
+
+            #typewriter {
+                font-size: 1.25rem; /* Réduit la taille du texte machine à écrire */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 3rem; /* Encore plus petit sur les très petits écrans */
+            }
+
+            #typewriter {
+                font-size: 1rem; /* Ajuste la taille du texte */
+            }
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+        // texte
+        const text = "Étudiant en Informatique";
+        const typewriterElement = document.getElementById("typewriter");
+        const typingSpeed = 100; // Vitesse d'écriture (en ms)
+        const deletingSpeed = 50; // Vitesse d'effacement (en ms)
+        const pauseBetween = 1000; // Pause avant de supprimer ou redémarrer (en ms)
+
+        let index = 0; // Position actuelle dans le texte
+        let isDeleting = false; // Indique si on efface ou écrit le texte
+
+        function typeWriter() {
+            if (!isDeleting && index < text.length) {
+                // Écriture du texte
+                typewriterElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, typingSpeed);
+            } else if (isDeleting && index > 0) {
+                // Effacement du texte
+                typewriterElement.innerHTML = text.substring(0, index - 1);
+                index--;
+                setTimeout(typeWriter, deletingSpeed);
+            } else {
+                // Basculer entre écriture et effacement
+                isDeleting = !isDeleting;
+                setTimeout(typeWriter, pauseBetween);
+            }
+        }
+
+        // Démarrage de l'animation
+        typeWriter();
+    </script>
+
+
+
+    <!-- Section Profil -->
+    <div id="profil" class="container mx-auto p-8">
+        <div class="flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <!-- photo et logo -->
+            <div class="w-full md:w-1/3 flex justify-center p-6 bg-gray-100">
+                <div class="text-center">
+                    <img src="medias/photo_profil.jpg" alt="photo profil" class="rounded-full w-40 h-40 mx-auto border-4 border-blue-500">
+                    <img src="medias/logo_ynov_noir.png" alt="logo ynov" class="mt-6 mx-auto w-28 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </div>
+            <!-- profil -->
+            <div class="w-full md:w-2/3 p-8">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-600 flex items-center space-x-2">
+                    <span>Mon Profil</span>
+                    <i class="fa-solid fa-plane text-blue-500"></i>
+                </h2>
+                <p class="text-gray-700 leading-relaxed text-justify">
+                    Bonjour ! Je suis <strong class="text-blue-500">Rayan</strong>, 19 ans, actuellement en deuxième année de
+                    bachelor informatique à Rennes Ynov Campus. Passionné par la technologie, je souhaite me spécialiser en
+                    <strong class="text-blue-500">cybersécurité</strong>. J'ai participé à plusieurs projets pratiques et CTF,
+                    renforçant mes compétences et ma passion.
+                </p>
+                <!-- texte stage + visible -->
+                <p class="mt-6">
+                    <strong class="block bg-blue-100 border-l-4 border-blue-500 text-blue-600 text-lg p-4 shadow-md">
+                        <i class="fa-solid fa-briefcase text-blue-500 mr-2"></i>
+                        Je recherche un stage en cybersécurité de 6 semaines en 2024/2025 et une alternance pour la rentrée 2025.
+                    </strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <!-- Section Competences -->
+    
+    <div id="competences" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Titre principal -->
+            <h2 class="relative text-4xl md:text-5xl font-extrabold text-center mb-12">
+                <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
+                    Mes Compétences
+                </span>
+                <div class="absolute left-1/2 transform -translate-x-1/2 mt-4 w-3/4 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 rounded-full animate-pulse"></div>
+            </h2>
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- grille des competences -->
+            <div class="grid gap-6 md:grid-cols-3">
+               <!-- Box cyber -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition transform hover:scale-105 duration-300">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-6 border-b pb-2 border-blue-300 text-center">Cybersécurité</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-center group">
+                            <img src="medias/competences/cyber/osint.png" alt="OSINT" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">OSINT</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/cyber/adminsys.png" alt="Admin Sys" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Admin.Sys (Linux, Windows)</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/cyber/pentest.png" alt="Pentest" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Pentesting (nmap, hydra, Wireshark, John...)</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/cyber/réseaux.png" alt="Base de Réseau" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Base de réseau</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/perso/ctf.png" alt="ctf" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">CTF -- Compétition et plateforme (débutant sur Root-Me)</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <!-- Box dev -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition transform hover:scale-105 duration-300">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-6 border-b pb-2 border-blue-300 text-center">Développement</h3>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-center group">
+                            <img src="medias/competences/dev/html.png" alt="web" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">HTML/CSS/JS</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/dev/go.png" alt="go" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Golang</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/dev/mysql.png" alt="BDD" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Base de donnée</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/dev/python.png" alt="python" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">python</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/dev/figma.png" alt="figma" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Maquettage</span>
+                        </li>
+                    </ul>
+                </div>
+                
+
+                <!-- box loisirs & passions -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition transform hover:scale-105 duration-300">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-6 border-b pb-2 border-blue-300 text-center">Loisirs & Passions</h3>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-center group">
+                            <img src="medias/competences/perso/triathlon.png" alt="tri" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Triathlon (Natation, Cyclisme, Course à pied)  </span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/perso/escalade.png" alt="escalade" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Escalade -- Bloc & Difficulté (9 ans)</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/perso/musique.png" alt="musique" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Conservatoire : Batterie (10 ans), Piano (5 ans), flute...</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/perso/avion.png" alt="Aviation" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Aviation : Licence pilote privé</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <img src="medias/competences/perso/binaire.png" alt="techno" class="w-10 h-10 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <span class="ml-4 text-gray-700 text-base transition-colors duration-300 group-hover:text-blue-600">Technologies : Impression 3D Électronique embarquée...</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="rootmeScore flex justify-center items-center h-screen bg-gray-100">
+            <img src="https://root-me-diff.vercel.app/rm-gh?nickname=M0an0x&gstats=show&style=AllBlue" alt="Root-Me Stats">
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Section Projets -->
+    <div id="projects" class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="relative text-4xl md:text-5xl font-extrabold text-center mb-12">
+                <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
+                    Mes Projets
+                </span>
+                <div class="absolute left-1/2 transform -translate-x-1/2 mt-4 w-3/4 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 rounded-full animate-pulse"></div>
+            </h2>
+          
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Projet 1 -->
+                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 group">
+                    <div class="h-56 bg-gray-200 flex items-center justify-center relative">
+                        <img src="medias/hacker_vaillant.png" alt="Hacker Vaillant" class="max-h-full max-w-full z-10">
+                        <!-- Effet de couleur -->
+                        <div class="absolute inset-0 bg-blue-800 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-800 transition-colors">
+                            Projet collaboratif Hacker Vaillant
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
+                            Ce projet a été fondé en collaboration avec un groupe de Master 2, afin de former les nouveaux étudiants aux principes de base de la cybersécurité.
+                        </p>
+                        <button onclick="location.href='Hacker_Vaillant.html'" class="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                            Voir les détails
+                        </button>
+                    </div>
+                </div>
+                <!-- Projet 2 -->
+                <div class="relative bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 group">
+                    <div class="h-56 bg-gray-200 flex items-center justify-center relative">
+                        <img src="medias/trans.png" alt="Trans Musicales" class="max-h-full max-w-full z-10">
+                        <!-- Effet de couleur -->
+                        <div class="absolute inset-0 bg-blue-800 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-800 transition-colors">
+                            Projet 72H Ynov X Les Trans Musicales
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
+                            Challenge 72H en équipe, comprenant la réalisation de maquettes de site web et d'application répondant à une problématique donnée.
+                        </p>
+                        <button onclick="location.href='Ynov_X_Trans.html'" class="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                            Voir les détails
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Projets Secondaires -->
+<div id="secondary-projects" class="py-12 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-extrabold text-center mb-8 text-blue-800">Mes Projets Secondaires</h2>
+
+        <!-- grille pour PC -->
+        <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- projet 1 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-xl transition transform hover:scale-105 duration-300">
+                <img src="medias/RP.png" alt="RP" class="w-full h-40 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mise en place d'un serveur web</h3>
+                </div>
+                <div class="p-4">
+                    <button onclick="location.href='Serveur_web.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                        Voir les détails
+                    </button>
+                </div>
+            </div>
+            <!-- projet 2 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col justify-betwee hover:shadow-xl transition transform hover:scale-105 duration-300">
+                <img src="medias/ctf.jpeg" alt="CTF" class="w-full h-40 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Participation CTF</h3>
+                </div>
+                <div class="p-4">
+                    <button onclick="location.href='CTF.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                        Voir les détails
+                    </button>
+                </div>
+            </div>
+            <!-- projet 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-xl transition transform hover:scale-105 duration-300">
+                <img src="medias/image_infra.png" alt="Projet Infra" class="w-full h-40 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Premier projet d'infra, création d'un CRUD</h3>
+                </div>
+                <div class="p-4">
+                    <button onclick="location.href='Projet_Infra.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                        Voir les détails
+                    </button>
+                </div>
+            </div>
+            <!-- projet 4 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col justify-between hover:shadow-xl transition transform hover:scale-105 duration-300">
+                <img src="medias/ppl/b23.jpg" alt="Projet PPL" class="w-full h-40 object-cover">
+                <div class="p-6 flex-1">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Licence de Pilote Privé (PPL)</h3>
+                </div>
+                <div class="p-4">
+                    <button onclick="location.href='PPL.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                        Voir les détails
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrousel  tel -->
+        <div class="md:hidden relative overflow-hidden">
+            <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                <!-- slide 1 -->
+                <div class="min-w-full flex-shrink-0 px-8 flex justify-center">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+                        <img src="medias/RP.png" alt="RP" class="w-full h-40 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Mise en place d'un serveur web</h3>
+                            <button onclick="location.href='Serveur_web.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- slide 2 -->
+                <div class="min-w-full flex-shrink-0 px-8 flex justify-center">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+                        <img src="medias/ctf.jpeg" alt="CTF" class="w-full h-40 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Participation CTF</h3>
+                            <button onclick="location.href='CTF.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- slide3 -->
+                <div class="min-w-full flex-shrink-0 px-8 flex justify-center">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+                        <img src="medias/image_infra.png" alt="Projet Infra" class="w-full h-40 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Premier projet d'infra, création d'un CRUD</h3>
+                            <button onclick="location.href='Projet_Infra.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- slide 4 -->
+                <div class="min-w-full flex-shrink-0 px-8 flex justify-center">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-64">
+                        <img src="medias/ppl/b23.jpg" alt="Projet PPL" class="w-full h-40 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Licence de Pilote Privé (PPL)</h3>
+                            <button onclick="location.href='PPL.html'" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-800 transition">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- nav -->
+            <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow hover:bg-blue-800 transition">←</button>
+            <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow hover:bg-blue-800 transition">→</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    const track = document.getElementById('carousel-track');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+
+    let currentIndex = 0;
+    const totalSlides = track.children.length;
+
+    function updateCarousel() {
+        const slideWidth = track.children[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+</script>
+
+
+
+
+    <!-- Section CV et Contact -->
+<section id="cv-contact-section" class="py-12 bg-gray-100">
+    <div class="container mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
+        <!-- CV -->
+        <div class="w-full md:w-2/5 p-6 bg-white shadow-lg rounded-lg hover:shadow-2xl transition-shadow">
+            <h2 class="text-3xl font-bold text-blue-600 mb-6 flex items-center space-x-2">
+                <i class="fas fa-file-alt text-blue-500"></i>
+                <span>Mon CV</span>
+            </h2>
+            <!-- Taille de l'image réduite -->
+            <img src="medias/CV_Deschamps_Rayan.jpg" alt="Aperçu de mon CV" class="w-3/4 mx-auto rounded-lg mb-6">
+            <div class="flex justify-center">
+                <a href="medias/CV_Deschamps_Rayan.pdf" download
+                    class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">
+                    Télécharger mon CV
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="w-full md:w-3/5 flex flex-col gap-6">
+            <!-- formulaire de Contact -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Contactez-moi</h2>
+                <form action="send_mail.php" method="POST" class="space-y-4">
+                    <!-- Email -->
+                    <div class="relative">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Votre email</label>
+                        <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-400">
+                            <input type="email" name="email" id="email" placeholder="email@example.com"
+                                class="w-full px-4 py-2 focus:outline-none rounded-l-lg">
+                            <i class="fas fa-envelope px-4 text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- Message  -->
+                    <div class="relative">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
+                        <textarea name="message" id="message" rows="4" placeholder="Écrivez votre message ici..."
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition"></textarea>
+                        <i class="fas fa-comment-dots absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <!--  Boutton -->
+                    <div class="flex justify-center">
+                        <button type="submit"
+                            class="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition transform">
+                            Envoyer <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Informations -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Mes informations</h3>
+                <div class="space-y-4">
+                    <!-- Email -->
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-2 rounded-full">
+                            <i class="fas fa-envelope text-blue-500 text-lg"></i>
+                        </div>
+                        <span class="text-gray-700 text-sm">rayan.deschamps@ynov.com</span>
+                    </div>
+                    <!-- Localisation -->
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-red-100 p-2 rounded-full">
+                            <i class="fas fa-map-marker-alt text-red-500 text-lg"></i>
+                        </div>
+                        <span class="text-gray-700 text-sm">Rennes, (Paris) France</span>
+                    </div>
+                </div>
+
+                <!-- Réseaux sociaux -->
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-4">Suivez-moi</h4>
+                    <div class="flex justify-start space-x-4">
+                        <!-- GitHub -->
+                        <a href="https://github.com/Rdschmps" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-600 hover:text-black text-xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/rayan-deschamps-948673223/" target="_blank"
+                            rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 text-xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>2024 Rayan Deschamps</p>
+    </footer>
+
+</body>
+</html>

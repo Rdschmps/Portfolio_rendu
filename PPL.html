@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Hacker Vaillant</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .carousel-indicator.active {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Boîte d'informations responsive */
+        .dev-info {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            flex: 0 0 300px;
+            max-height: fit-content;
+        }
+        .dev-info h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .dev-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dev-info ul li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .dev-info ul li a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .dev-info ul li a:hover {
+            color: #003ea1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dev-info {
+                margin-top: 20px;
+                max-width: 100%;
+                flex: none;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg relative">
+        <!-- Conteneur flexible pour alignement -->
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <!-- Titre -->
+            <h1 class="text-xl font-bold text-center flex-1">
+                Licence de pilote privé
+            </h1>
+            <!-- Bouton Retour -->
+            <a href="index.html#secondary-projects" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition ml-4">
+                Retour aux Projets
+            </a>
+        </div>
+    </header>
+
+    
+    
+
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    
+
+    <main class="container mx-auto p-6 flex lg:flex-row flex-col gap-6 mb-4">
+        <!-- Section principale -->
+        <div class="main-content flex-1">
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="medias/ppl/b23-sun.jpg" alt="Image 1 -">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/ppl/g3x.jpg" alt="Image 2 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/ppl/acriv.jpg" alt="Image 3 - ">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="medias/ppl/tdp.jpg" alt="Image 4 -">
+                    </div>
+                    *
+                </div>
+                <!-- boutoon nvaigation -->
+                <button class="carousel-button prev">&#10094;</button>
+                <button class="carousel-button next">&#10095;</button>
+                <!-- Indicateurs -->
+                <div class="carousel-indicators mb-6">
+                    <span class="carousel-indicator active" data-slide="0"></span>
+                    <span class="carousel-indicator" data-slide="1"></span>
+                    <span class="carousel-indicator" data-slide="2"></span>
+                    <span class="carousel-indicator" data-slide="3"></span>
+                    
+                </div>
+            </div>
+            
+
+
+            
+                <div class="space-y-12">
+                    <!--description-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Description</h2>
+                        <p class="leading-relaxed">
+                            Depuis <strong>2023</strong>, je travaille à l'obtention de ma <strong>Licence de Pilote Privé (PPL)</strong> à l'aéroclub de Rennes ille et vilaine (ACRIV). 
+                            Ce projet représente un défi technique et personnel majeur, me permettant de développer des compétences en navigation aérienne, gestion de vol, et prise de décision en situation critique.
+                        </p>
+                    </section>
+                <!--objectifs-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Objectifs</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p>Les objectifs de cette formation sont multiples :</p>
+                            <li><strong>Maîtriser les bases du pilotage</strong> d'un avion léger dans des conditions de vol variées (vol à vue, conditions météorologiques difficiles).</li>
+                            <li><strong>Apprendre la navigation aérienne</strong> à travers des cartes spécifiques, calcul de trajectoires, et suivi de plans de vol précis.</li>
+                            <li><strong>Comprendre la réglementation aérienne</strong> et assurer la sécurité des vols selon les normes en vigueur.</li>
+                        </ul>
+                    </section>
+                
+                <!--challenges-->
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Déroulement de la Formation</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p>Le projet PPL se divise en deux parties :</p>
+                            <li><strong>Formation Théorique</strong> : Études approfondies sur l'aérodynamique, la météorologie, les systèmes de navigation, les performances d'avion et les règlements aéronautiques...</li>
+                            <li><strong>Formation Pratique</strong> : Plus de 45 heures de vol, incluant des sessions en double commande avec instructeur et des vols solo pour parfaire la maîtrise du pilotage.</li>
+                            
+                        </ul>
+                    </section>
+                    
+
+
+
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Compétences Développées</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <p> Ce projet m'a permis de :</p>
+                            <li><strong>Améliorer ma gestion du stress et des situations critiques</strong>, notamment lors des vols solo où la prise de décision rapide est cruciale.</li>
+                            <li><strong>Formation Pratique</strong> : Plus de 45 heures de vol, incluant des sessions en double commande avec instructeur et des vols solo pour parfaire la maîtrise du pilotage.</li>
+                            <li><strong>Acquérir des compétences techniques aéronautiques</strong>, notamment en communication radio, gestion des instruments de bord, et analyse météorologique.</li>
+                            
+                        </ul>
+                    </section>
+
+
+                    <section class="bg-white p-6 rounded-lg shadow">
+                        <h2 class="text-2xl font-bold text-blue-500 mb-4">Ce que ce projet m'apporte</h2>
+                        <p class="leading-relaxed">
+                            La formation PPL m'a offert une vision plus large de la rigueur nécessaire dans des environnements à haute responsabilité. Cela a amélioré ma gestion du temps, mes compétences en gestion des risques, et ma capacité à assimiler des informations complexes rapidement. Ce projet a également renforcé ma capacité à rester calme et concentré sous pression, des qualités que je peux appliquer à mes projets technologiques et professionnels.
+                        Vous pouvez suivre l'évolution de ma formation sur ma page Linkedin, ou je documente chaque étapes cruciale de ma formation !
+                        </p>
+                    </section>
+                
+                
+                
+                
+                
+                
+                
+                </div>  
+
+                
+            
+            
+
+
+
+        </div>
+
+        <!-- Boîte latérale -->
+        <aside class="dev-info">
+            <h3>Informations de Développement</h3>
+            <ul>
+                <li><strong>Catégorie :</strong>Projet Perso</li>
+                <li><strong>Date :</strong> Depuis 2023</li>
+                <li><strong>Linkedin pour suivre ma formation :</strong> <a href="https://www.linkedin.com/in/rayan-deschamps-948673223/" target="_blank">Linkedin</a></li>
+                
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-6 shadow-lg text-center">
+        <p>2024 Rayan Deschamps.</p>
+    </footer>
+
+
+    <!-- Script Carousel -->
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * index}px)`;
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+            updateCarousel(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel(currentIndex);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html>
